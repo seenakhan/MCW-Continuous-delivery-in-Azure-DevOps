@@ -105,7 +105,7 @@ Code scanning is a feature that you use to analyze the code in a GitHub reposito
  
      Go to Security tab and then select advisories and then select New draft security advisory option.
      
-     ![](media/secad.png)
+     ![](media/adse23.png)
      
   1. In the affected Product section Select the ecosystem as composer, provide the package name as **mcw-continuous-delivery-lab-files/content-web/app.js**, provide     affected version as <1.2 and patched version as 1.2 and provide severity as high
   
@@ -116,41 +116,41 @@ Code scanning is a feature that you use to analyze the code in a GitHub reposito
       ![](media/secad4.png)
       
    1. In the description box include the following:
-       ### Impact
+       Impact
       _What kind of vulnerability is it? Who is impacted?_
 
       HTTP request handlers should not perform expensive operations such as accessing the file system, executing an operating system command or interacting with a      database without limiting the rate at which requests are accepted. Otherwise, the application becomes vulnerable to denial-of-service attacks where an attacker can cause the application to crash or become unresponsive by issuing a large number of requests at the same time.
 
-    ### Patches
-    _Has the problem been patched? What versions should users upgrade to?_
+       Patches
+      _Has the problem been patched? What versions should users upgrade to?_
 
-    It is patched and rectified the error. Please use 1.2 version
+      It is patched and rectified the error. Please use 1.2 version
 
 
-    ### Workarounds
-    _Is there a way for users to fix or remediate the vulnerability without upgrading?_
+       Workarounds
+      _ Is there a way for users to fix or remediate the vulnerability without upgrading?_
 
-    // set up rate limiter: maximum of five requests per minute
-    var RateLimit = require('express-rate-limit');
-    var limiter = new RateLimit({
-     windowMs: 1*60*1000, // 1 minute
-      max: 5
-      });
+      // set up rate limiter: maximum of five requests per minute
+      var RateLimit = require('express-rate-limit');
+      var limiter = new RateLimit({
+       windowMs: 1*60*1000, // 1 minute
+        max: 5
+        });
 
-    // apply rate limiter to all requests
-    app.use(limiter);
+       // apply rate limiter to all requests
+       app.use(limiter);
 
-    Added the above code in app.js
+       Added the above code in app.js
 
-    ### References
-    _Are there any links users can visit to find out more?_
+       References
+      _Are there any links users can visit to find out more?_
 
-    https://github.com/OWASP/API-Security/blob/master/2019/en/src/0xa4-lack-of-resources-and-rate-limiting.md
-    https://codeql.github.com/codeql-query-help/javascript/js-missing-rate-limiting/
+      https://github.com/OWASP/API-Security/blob/master/2019/en/src/0xa4-lack-of-resources-and-rate-limiting.md
+      https://codeql.github.com/codeql-query-help/javascript/js-missing-rate-limiting/
     
- 1. After filled the description box fill the Credit section with current user name. Then click on Create draft security advisory.
+  1. After filled the description box fill the Credit section with current user name. Then click on Create draft security advisory.
  
-    ![](media/secad7.png)
+     ![](media/adse24.png)
     
  1. Once created the security advisory go to start a temporary private fork, it is used to collaborate on a patch for this advisory.
 
